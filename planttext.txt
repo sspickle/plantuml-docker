@@ -1,0 +1,41 @@
+@startuml
+
+title Relationships - Class Diagram
+
+class Animal {
+
+    +age: int;
+    +gender: string;
+
+    +constructor( age: int, gender: string);
+    +isMammal():boolean;
+    +mate();
+}
+
+class Duck extends Animal {
+    +beakColor: String = "yellow";
+    +swim();
+}
+
+class Fish extends Animal {
+    +sizeInFt: int;
+    +canDeat: boolean;
+    +swim();
+}
+
+class Zebra extends Animal {
+    -Array observers;
+    +is_wild: boolean;
+    +run();
+    +subscribe(Object observer);
+    -notify()
+}
+
+class Observer {
+    -count: int;
+    +notify();
+}
+
+Observer "0..*"*-left- Zebra
+
+@enduml
